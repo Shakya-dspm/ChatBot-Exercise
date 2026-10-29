@@ -1,8 +1,7 @@
 function btnSendMassageOnAction() {
+    
     const myHeaders = new Headers();
-    myHeaders.append("Content-Type", "application/json");
-    myHeaders.append("X-goog-api-key", "AQ.Ab8RN6KlPJm_aoJ82PEGeJClJ5zIGSCRiRV6Mf5tkKEcgIdPlw");
-
+    
     let userInput =document.getElementById("txtUserInput").value;
 
     const raw = JSON.stringify({
@@ -25,8 +24,12 @@ function btnSendMassageOnAction() {
     };
 
     fetch("https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent", requestOptions)
-        .then((response) => response.text())
-        .then((result) => console.log(result))
+        .then((response) => response.json())
+        .then((result) => {
+            let markdownText = result.candidates[0].content.parts[0].text;
+            let html = marked.parse(markdownText);
+            document.getElementById("respondArea").innerHTML = html;
+        })
         .catch((error) => console.error(error));
 }
 
