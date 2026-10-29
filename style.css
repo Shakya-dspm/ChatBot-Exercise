@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
 *{
     border : 0;
 }
@@ -24,7 +26,7 @@ body{
 }
 
 .massage-field{
-    width: 700px;
+    width: 850px;
     height: 50px;
     color:  rgba(0, 0, 0, 0.815);
     font: inherit;
@@ -36,11 +38,11 @@ body{
     border-radius: 30px;
     font-size: 22px;
     font-weight: bold;
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family:"Balsamiq Sans", sans-serif;
 }
 
 .send-button{
-    width: 150px;
+    width: 180px;
     height: 55px;
     border-radius: 30px;
     border: 2px solid #a7a3a3;
@@ -49,5 +51,17 @@ body{
     color: whitesmoke;
     background-color: #3b3e4295;
     font-weight: bold;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family: "Balsamiq Sans", sans-serif;
+}
+
+.respond-area{
+    width: 65%;
+    display: flex; 
+    flex-direction: column;
+    justify-content: right;
+    color: whitesmoke;
+    padding-top: 80px;
+    font-size: 20px;
+    font-family: "Balsamiq Sans", sans-serif;
+    padding-bottom: 140px;
 }
