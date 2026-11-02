@@ -6,6 +6,9 @@ function btnSendMassageOnAction() {
 
     let userInput = document.getElementById("txtUserInput").value;
 
+    document.getElementById("txtUserInput").value = "";
+    document.getElementById("respondArea").value = "";
+
     const raw = JSON.stringify({
         "contents": [
             {
@@ -25,9 +28,9 @@ function btnSendMassageOnAction() {
         redirect: "follow"
     };
 
-    const API_KEY = "YOUR_API_KEY";
+    const API_KEY = "API_KEY";
 
-    fetch(API_KEY, requestOptions)
+    fetch("https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent?key=" + API_KEY, requestOptions)
         .then((response) => response.json())
         .then((result) => {
             let markdownText = result.candidates[0].content.parts[0].text;
