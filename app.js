@@ -1,8 +1,10 @@
 function btnSendMassageOnAction() {
-    
+
     const myHeaders = new Headers();
-    
-    let userInput =document.getElementById("txtUserInput").value;
+    myHeaders.append("Cookie", "application/json");
+    myHeaders.append("Content-Type", "application/json");
+
+    let userInput = document.getElementById("txtUserInput").value;
 
     const raw = JSON.stringify({
         "contents": [
@@ -23,7 +25,9 @@ function btnSendMassageOnAction() {
         redirect: "follow"
     };
 
-    fetch("https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent", requestOptions)
+    const API_KEY = "YOUR_API_KEY";
+
+    fetch(API_KEY, requestOptions)
         .then((response) => response.json())
         .then((result) => {
             let markdownText = result.candidates[0].content.parts[0].text;
@@ -32,4 +36,3 @@ function btnSendMassageOnAction() {
         })
         .catch((error) => console.error(error));
 }
-
